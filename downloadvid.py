@@ -81,5 +81,5 @@ def download_video(url, output_path='.'):
     print("4. Check your internet connection")
 
 if __name__ == '__main__':
-    video_url = "https://youtu.be/hpszGl2cl_k?si=02HNQDc81V7273Ng"
+    video_url = "https://www.youtube.com/watch?v=example"  # Replace with your video URL
     download_video(video_url)
