@@ -1,6 +1,21 @@
 # YouTube Video Downloader
 
-A robust Python script to download YouTube videos with automatic fallback mechanisms for maximum reliability.
+A robust Python script to download YouTube videos with automatic fallback mechanisms for maximum reliability. Available in both **command-line** and **interactive** versions.
+
+## 📦 Available Versions
+
+### 🖥️ **Interactive Version** (`interactive_downloader.py`) - **RECOMMENDED**
+- **User-friendly menu interface** - No code editing required!
+- **Interactive URL input** - Just paste and download
+- **Batch download mode** - Download multiple videos at once
+- **Custom download folders** - Organize your downloads
+- **Real-time progress** - Visual feedback with emojis
+- **Error recovery** - Helpful troubleshooting messages
+
+### ⚡ **Command-Line Version** (`downloadvid.py`) - **FOR DEVELOPERS**
+- **Programmatic usage** - Integrate into your own scripts
+- **Direct function calls** - `download_video(url, path)`
+- **Lightweight** - Minimal interface overhead
 
 ## Features
 
@@ -46,7 +61,32 @@ pip install --upgrade pytube yt-dlp
 
 ## Usage
 
-### Basic Usage
+### 🎯 **Interactive Version** (Recommended for most users)
+
+1. **Run the interactive script**:
+   ```bash
+   python interactive_downloader.py
+   ```
+
+2. **Choose from the menu**:
+   - Option 1: Download a single video
+   - Option 2: Batch download multiple videos
+   - Option 3: Exit
+
+3. **For single video download**:
+   - Paste your YouTube URL when prompted
+   - Choose download folder (or press Enter for current folder)
+   - Watch it download automatically!
+
+4. **For batch download**:
+   - Enter multiple URLs one by one
+   - Press Enter on empty line to finish
+   - Choose download folder for all videos
+   - Sit back and watch the magic happen!
+
+### ⚡ **Command-Line Version** (For developers)
+
+#### Basic Usage
 
 1. **Edit the script** to add your YouTube URL:
    ```python
@@ -58,7 +98,7 @@ pip install --upgrade pytube yt-dlp
    python downloadvid.py
    ```
 
-### Programmatic Usage
+#### Programmatic Usage
 
 You can also use the functions in your own code:
 
@@ -74,6 +114,45 @@ download_video("https://www.youtube.com/watch?v=example", output_path="./downloa
 
 ### Example Output
 
+#### Interactive Version
+```
+============================================================
+🎥 YOUTUBE VIDEO DOWNLOADER 🎥
+============================================================
+Dual-method downloader with automatic fallback
+Supports all YouTube video formats and qualities
+============================================================
+
+========================================
+MENU OPTIONS:
+1. Download a video
+2. Batch download (multiple URLs)
+3. Exit
+========================================
+
+Enter your choice (1-3): 1
+
+🎬 SINGLE VIDEO DOWNLOAD
+
+📎 Enter YouTube URL:
+URL: https://www.youtube.com/watch?v=example
+
+📁 Enter download folder (press Enter for current folder):
+Path: 
+
+🎯 Attempting to download from: https://www.youtube.com/watch?v=example
+🔄 Trying with yt-dlp...
+📺 Title: Example Video Title
+👤 Uploader: Channel Name
+⏱️ Duration: 3:45
+⬇️ Downloading...
+[download] 100% of 75.38MiB in 00:00:07 at 10.56MiB/s
+✅ Download complete! Saved as: Example Video Title.mp4
+
+🎉 SUCCESS! Video saved to: C:\Users\yourname\Downloads
+```
+
+#### Command-Line Version
 ```
 Attempting to download from: https://www.youtube.com/watch?v=example
 Trying with pytube...
@@ -184,17 +263,38 @@ pip install --upgrade pytube yt-dlp
 
 ## Advanced Usage
 
-### Batch Downloads
+### Batch Downloads (Interactive Version Only)
+
+The interactive version supports downloading multiple videos in one session:
 
 ```python
-urls = [
-    "https://www.youtube.com/watch?v=video1",
-    "https://www.youtube.com/watch?v=video2",
-    "https://www.youtube.com/watch?v=video3"
-]
+# Example batch download session
+📋 BATCH DOWNLOAD MODE
+Enter YouTube URLs one by one (empty line to finish):
 
-for url in urls:
-    download_video(url, output_path="./batch_downloads/")
+URL #1: https://www.youtube.com/watch?v=video1
+✅ Added: https://www.youtube.com/watch?v=video1
+
+URL #2: https://www.youtube.com/watch?v=video2  
+✅ Added: https://www.youtube.com/watch?v=video2
+
+URL #3: [Enter] 
+
+📁 Enter download folder for all videos (press Enter for current folder):
+Path: ./my_videos
+
+🚀 Starting batch download of 2 videos...
+
+==================== VIDEO 1/2 ====================
+[Downloads first video...]
+
+==================== VIDEO 2/2 ====================  
+[Downloads second video...]
+
+📊 BATCH DOWNLOAD SUMMARY:
+✅ Successful: 2
+❌ Failed: 0
+📁 Saved to: C:\Users\yourname\my_videos
 ```
 
 ### Integration with Video Splitter
@@ -225,14 +325,23 @@ The script includes comprehensive error handling:
 
 ## Changelog
 
-### v2.0.0
+### v2.1.0 - Interactive Edition
+- ✨ **NEW**: Interactive downloader with menu-based interface
+- ✨ **NEW**: Batch download mode for multiple videos
+- ✨ **NEW**: Custom download folder selection
+- ✨ **NEW**: Real-time visual feedback with emojis
+- ✨ **NEW**: URL validation and error recovery
+- ✅ **IMPROVED**: Better user experience - no code editing required
+- ✅ **IMPROVED**: Enhanced error messages and troubleshooting
+
+### v2.0.0 - Dual Method Release
 - Added yt-dlp fallback mechanism
 - Improved error handling
 - Better format selection
 - Progress tracking
 - Comprehensive README
 
-### v1.0.0
+### v1.0.0 - Initial Release
 - Initial release with pytube
 - Basic download functionality
 
